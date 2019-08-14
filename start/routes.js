@@ -36,3 +36,8 @@ Route.group(() => {
   Route.get('/edit/:id', 'JobController.edit');
   Route.post('/update/:id', 'JobController.update').validator('CreateJob');
 }).prefix('/post-a-job');
+
+Route.group(() => {
+  Route.get('/users', 'Api/V1/UserController.index');
+  Route.get('/users/:id', 'Api/V1/UserController.show');
+}).prefix('/api/v1');

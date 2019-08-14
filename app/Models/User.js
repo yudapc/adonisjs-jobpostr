@@ -7,6 +7,9 @@ const Hash = use('Hash');
 const Model = use('Model');
 
 class User extends Model {
+  static get hidden() {
+    return ['password', 'created_at', 'updated_at'];
+  }
   static boot() {
     super.boot();
 
@@ -37,6 +40,9 @@ class User extends Model {
   jobs() {
     return this.hasMany('App/Models/Job');
   }
+  // static get Serializer() {
+  //   return 'App/Serializers/Api/UserSerializer';
+  // }
 }
 
 module.exports = User;
